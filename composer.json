@@ -3,6 +3,7 @@
   "prefer-stable": true,
   "require": {
     "craftcms/cms": "^5.9.0",
+    "johnhenry/matrix-block-anchor": "^3.3.0",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {

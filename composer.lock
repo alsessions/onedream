@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "deee5c615b9c0605a77fdbeb470527eb",
+    "content-hash": "4eceff35b483053a6d5153de859c9a7f",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2020,6 +2020,79 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2025-09-08T19:05:53+00:00"
+        },
+        {
+            "name": "johnhenry/matrix-block-anchor",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/john-henry/matrix-block-anchor.git",
+                "reference": "75df98b31082a93fccb3c8a9c095ae8fa21a4da9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/john-henry/matrix-block-anchor/zipball/75df98b31082a93fccb3c8a9c095ae8fa21a4da9",
+                "reference": "75df98b31082a93fccb3c8a9c095ae8fa21a4da9",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.0",
+                "php": "^8.2 || ^8.3 || ^8.4"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Matrix Block Anchor",
+                "class": "johnhenry\\matrixblockanchor\\MatrixBlockAnchor",
+                "handle": "matrix-block-anchor",
+                "developer": "John Henry",
+                "changelogUrl": "https://github.com/john-henry/matrix-block-anchor/blob/craft-5/CHANGELOG.md",
+                "developerUrl": "https://johnhenry.ie",
+                "documentationUrl": "https://johnhenry.ie/plugins/matrix-block-anchor/"
+            },
+            "autoload": {
+                "psr-4": {
+                    "johnhenry\\matrixblockanchor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Henry",
+                    "homepage": "https://johnhenry.ie"
+                }
+            ],
+            "description": "Give editors copy-ready anchor links straight to Matrix blocks, auto-generated or custom, no developer required.",
+            "keywords": [
+                "Craft",
+                "anchor",
+                "cms",
+                "craft-plugin",
+                "craftcms",
+                "matrix"
+            ],
+            "support": {
+                "docs": "https://johnhenry.ie/plugins/matrix-block-anchor/",
+                "issues": "https://github.com/john-henry/matrix-block-anchor/issues",
+                "source": "https://github.com/john-henry/matrix-block-anchor"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/john.henry",
+                    "type": "buy_me_a_coffee"
+                },
+                {
+                    "url": "https://github.com/john-henry",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-06T01:08:39+00:00"
         },
         {
             "name": "league/uri",
