@@ -2,6 +2,4 @@
 /.idea
 /vendor
 /node_modules
-/seed-menu-content.php
-/seed-menu.content.php
 .DS_Store
