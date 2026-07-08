@@ -1,0 +1,50 @@
+defaultPlacement: end
+fieldLayouts:
+  3a01bd76-4696-4990-a91d-31fe6defedd2:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: 79e9b1c6-6f21-4589-b429-031fca141e21
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: eabc5f5c-2a59-4b15-96b1-fa75175a267d
+        userCondition: null
+    thumbFieldKey: null
+handle: menuCategories
+name: 'Menu Categories'
+siteSettings:
+  702e5350-1222-4a9b-a57e-78cd020cf797: # One Dream
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: a303d428-5baf-40e7-99f0-528b6c755667

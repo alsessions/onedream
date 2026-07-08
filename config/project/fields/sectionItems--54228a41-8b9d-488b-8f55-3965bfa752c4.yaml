@@ -1,0 +1,47 @@
+columnSuffix: null
+handle: sectionItems
+instructions: null
+name: 'Section Items'
+searchable: false
+settings:
+  addRowLabel: 'Add an item'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Item
+            -
+              - handle
+              - item
+            -
+              - type
+              - singleline
+            -
+              - width
+              - ''
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Price
+            -
+              - handle
+              - price
+            -
+              - type
+              - singleline
+            -
+              - width
+              - 120px
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

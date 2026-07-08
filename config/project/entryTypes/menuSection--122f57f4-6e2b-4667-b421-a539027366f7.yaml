@@ -1,38 +1,26 @@
 allowLineBreaksInTitles: false
 color: null
-description: 'The top level menu page.'
+description: null
 fieldLayouts:
-  49ac9546-13da-4e86-964c-8ce74be48d69:
+  39ea86a3-0d3a-4f1a-89d1-d5d762dff3f6:
     cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
         elements:
           -
-            autocapitalize: true
-            autocomplete: false
-            autocorrect: true
-            class: null
             dateAdded: null
-            disabled: false
+            editCondition: null
             elementCondition: null
-            id: null
-            inputType: null
+            elementEditCondition: null
+            fieldUid: 6ccbe5ee-8ff5-4a76-bae2-b5c23f153bf5 # Section Category
+            handle: null
             instructions: null
             label: null
-            max: null
-            min: null
-            name: null
-            orientation: null
-            placeholder: null
-            readonly: false
             required: true
-            size: null
-            step: null
             tip: null
-            title: null
-            type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 47e2d376-39b8-4f44-bcc5-228265da7a00
+            type: craft\fieldlayoutelements\CustomField
+            uid: 06b935b1-81f4-49d5-bbea-f6349a86b4fe
             userCondition: null
             warning: null
             width: 100
@@ -41,30 +29,30 @@ fieldLayouts:
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 9088c39e-8cc5-4d65-9ab6-c6639c501a67 # Menu Sections
+            fieldUid: 54228a41-8b9d-488b-8f55-3965bfa752c4 # Section Items
             handle: null
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 19d96694-2de4-4001-8dbe-4dcfe2c4eb39
+            uid: 2deece9d-c1b0-4abb-96cd-3efa124c0c0e
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 1d7b7bc6-b51f-42f8-bfc6-5aa916314951
+        uid: 0016ec18-51c3-4202-8840-86ac5e4b4986
         userCondition: null
     thumbFieldKey: null
-handle: menuIndex
-hasTitleField: true
+handle: menuSection
+hasTitleField: false
 icon: null
-name: 'Menu Index'
-showSlugField: true
-showStatusField: true
+name: 'Menu Section'
+showSlugField: false
+showStatusField: false
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: null
+titleFormat: '{sectionCategory.one().title}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
 uiLabelFormat: '{title}'
