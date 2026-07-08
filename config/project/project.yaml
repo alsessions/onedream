@@ -1,4 +1,4 @@
-dateModified: 1783534754
+dateModified: 1783537707
 email:
   fromEmail: fultonchain@gmail.com
   fromName: 'One Dream'
@@ -6,6 +6,8 @@ email:
 meta:
   __names__:
     702e5350-1222-4a9b-a57e-78cd020cf797: 'One Dream' # One Dream
+    7823d8f2-2521-4846-a902-025d41f85e54: Menu # Menu
+    95750d76-ba63-4651-b36d-ee79978a1942: 'Menu Index' # Menu Index
     ddf31e78-4d08-4f75-a44b-55abcac71f00: 'One Dream' # One Dream
 system:
   edition: solo

@@ -1,0 +1,22 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 95750d76-ba63-4651-b36d-ee79978a1942 # Menu Index
+handle: menu
+maxAuthors: 1
+minAuthors: 1
+name: Menu
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  702e5350-1222-4a9b-a57e-78cd020cf797: # One Dream
+    enabledByDefault: true
+    hasUrls: true
+    template: menu/index.twig
+    uriFormat: menu
+type: single

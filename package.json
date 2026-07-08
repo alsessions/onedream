@@ -1,0 +1,12 @@
+{
+  "name": "onedream",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./src/css/app.css -o ./web/app.css --watch",
+    "build": "tailwindcss -i ./src/css/app.css -o ./web/app.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}
