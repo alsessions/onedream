@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en
+name: 'One Dream'
+primary: true
+siteGroup: ddf31e78-4d08-4f75-a44b-55abcac71f00 # One Dream
+sortOrder: 1
