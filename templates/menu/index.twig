@@ -14,13 +14,13 @@
         </header>
 
         {% if menuSections %}
-            <nav class="mb-8 flex flex-wrap justify-center gap-3 px-2 text-sm font-semibold sm:px-6" aria-label="Menu categories">
+            <nav class="mx-auto mb-8 flex max-w-5xl flex-wrap justify-center gap-2 text-sm font-semibold" aria-label="Menu categories">
                 {% for section in menuSections %}
                     {% set category = section.sectionCategory.one() %}
                     {% set items = section.sectionItems ?? [] %}
 
                     {% if category and items %}
-                        <a class="w-auto rounded-md border border-slate-300 bg-white px-1 py-2 text-center leading-snug text-slate-700 shadow-sm hover:border-slate-900 hover:text-slate-950" href="#{{ category.slug }}">
+                        <a class="rounded-md border border-blue-200 bg-white px-2.5 py-1.5 text-center leading-snug text-blue-600 shadow-sm hover:border-blue-400 hover:bg-blue-50 hover:text-blue-800" href="#{{ category.slug }}">
                             {{ category.title }}
                         </a>
                     {% endif %}
