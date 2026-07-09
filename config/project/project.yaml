@@ -1,4 +1,4 @@
-dateModified: 1783547198
+dateModified: 1783613680
 email:
   fromEmail: fultonchain@gmail.com
   fromName: 'One Dream'
@@ -6,15 +6,23 @@ email:
 meta:
   __names__:
     6ccbe5ee-8ff5-4a76-bae2-b5c23f153bf5: 'Section Category' # Section Category
+    71d678f9-6918-4841-ace1-9e4b44aeaf24: Contact # Contact
     122f57f4-6e2b-4667-b421-a539027366f7: 'Menu Section' # Menu Section
     702e5350-1222-4a9b-a57e-78cd020cf797: 'One Dream' # One Dream
     7823d8f2-2521-4846-a902-025d41f85e54: Menu # Menu
     9088c39e-8cc5-4d65-9ab6-c6639c501a67: 'Menu Sections' # Menu Sections
     54228a41-8b9d-488b-8f55-3965bfa752c4: 'Section Items' # Section Items
     95750d76-ba63-4651-b36d-ee79978a1942: 'Menu Index' # Menu Index
+    610306f6-9957-4063-b59f-d2bef982f84f: 'Formatted Text' # Formatted Text
+    907960db-85f4-4340-b6ca-673af5ab5371: About # About
+    c1cc82e6-4430-4866-aa2d-cf1c1966c648: 'Formatted Text' # Formatted Text
     dd40b39d-e436-4ab1-ae62-abc1f075207f: 'Menu Categories' # Menu Categories
     ddf31e78-4d08-4f75-a44b-55abcac71f00: 'One Dream' # One Dream
 plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 5.6.0.0
   matrix-block-anchor:
     edition: standard
     enabled: true

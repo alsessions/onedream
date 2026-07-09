@@ -4,27 +4,44 @@
 {% block bodyClass %}bg-slate-50 text-slate-800 antialiased{% endblock %}
 
 {% block body %}
-    <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    {% set menuSections = entry.menuSections.all() %}
+
+    <main class="mx-auto min-h-screen max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <header class="mb-8 text-center">
-            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">Quick Serve Menu</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">Fast, Fresh & Delicious</p>
             <h1 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">One Dream</h1>
             <p class="mt-3 text-sm text-slate-500">Prices subject to change.</p>
         </header>
 
+        {% if menuSections %}
+            <nav class="mb-8 flex flex-wrap justify-center gap-3 px-2 text-sm font-semibold sm:px-6" aria-label="Menu categories">
+                {% for section in menuSections %}
+                    {% set category = section.sectionCategory.one() %}
+                    {% set items = section.sectionItems ?? [] %}
+
+                    {% if category and items %}
+                        <a class="w-auto rounded-md border border-slate-300 bg-white px-1 py-2 text-center leading-snug text-slate-700 shadow-sm hover:border-slate-900 hover:text-slate-950" href="#{{ category.slug }}">
+                            {{ category.title }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </nav>
+        {% endif %}
+
         <div class="columns-1 gap-5 sm:columns-2 xl:columns-3 [&>*]:mb-5">
-            {% for section in entry.menuSections.all() %}
+            {% for section in menuSections %}
                 {% set category = section.sectionCategory.one() %}
                 {% set items = section.sectionItems ?? [] %}
 
                 {% if category and items %}
                     <section class="break-inside-avoid rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                        <h2 class="mb-2 border-b-2 border-slate-900 pb-1 text-lg font-bold tracking-tight text-slate-950">{{ category.title }}</h2>
+                        <h2 id="{{ category.slug }}" class="scroll-mt-6 mb-2 border-b-2 border-slate-900 pb-1 text-lg font-bold tracking-tight text-slate-950">{{ category.title }}</h2>
 
                         <ul>
                             {% for item in items %}
                                 <li class="flex items-start justify-between gap-4 border-b border-slate-200/70 py-1.5 text-sm leading-snug">
-                                    <span>{{ item.item }}</span>
-                                    <span class="shrink-0 font-semibold text-slate-900">{{ item.price }}</span>
+                                    <span class="font-semibold">{{ item.item }}</span>
+                                    <span class="shrink-0  text-slate-900">{{ item.price }}</span>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -35,6 +52,24 @@
                     <h1 class="text-2xl font-bold tracking-tight text-slate-950">Menu coming soon.</h1>
                 </section>
             {% endfor %}
+        </div>
+
+        <div
+            class="fixed bottom-4 right-4 z-20"
+            x-data="{ showBackToTop: false }"
+            x-init="showBackToTop = window.scrollY > 300"
+            @scroll.window="showBackToTop = window.scrollY > 300"
+            x-cloak
+            x-show="showBackToTop"
+        >
+            <button
+                class="flex size-11 items-center justify-center rounded-full border border-slate-300 bg-white text-2xl leading-none text-slate-700 shadow-md hover:border-slate-900 hover:text-slate-950"
+                type="button"
+                aria-label="Back to top"
+                @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            >
+                &uarr;
+            </button>
         </div>
     </main>
 {% endblock %}

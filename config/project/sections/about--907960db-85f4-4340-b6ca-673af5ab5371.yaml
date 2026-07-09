@@ -1,0 +1,22 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 610306f6-9957-4063-b59f-d2bef982f84f # Formatted Text
+handle: about
+maxAuthors: 1
+minAuthors: 1
+name: About
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  702e5350-1222-4a9b-a57e-78cd020cf797: # One Dream
+    enabledByDefault: true
+    hasUrls: true
+    template: about.twig
+    uriFormat: about
+type: single

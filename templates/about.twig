@@ -1,0 +1,17 @@
+{% extends '_layouts/base.twig' %}
+
+{% block body %}
+      <main class="mx-auto min-h-screen max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <header class="mb-8 text-center">
+            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">Fast, Fresh & Delicious</p>
+            <h1 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">One Dream</h1>
+            <p class="mt-3 text-sm text-slate-500">Prices subject to change.</p>
+        </header>
+
+        {% if entry.formattedText %}
+            <section class="prose prose-slate mx-auto max-w-3xl rounded-lg bg-white p-8 shadow-sm ring-1 ring-slate-200">
+                {{ entry.formattedText }}
+            </section>
+        {% endif %}
+    </main>
+{% endblock %}
