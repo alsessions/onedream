@@ -4,7 +4,6 @@ use craft\elements\Category;
 use craft\elements\Entry;
 use craft\enums\PropagationMethod;
 use craft\fieldlayoutelements\CustomField;
-use craft\fieldlayoutelements\entries\EntryTitleField;
 use craft\fields\Categories;
 use craft\fields\Matrix;
 use craft\fields\Table;
@@ -72,11 +71,11 @@ function fieldByHandle(string $handle, string $class, array $config)
 {
     $field = Craft::$app->getFields()->getFieldByHandle($handle);
 
-    if (!$field) {
-        $field = new $class($config);
-    } else {
-        Craft::configure($field, $config);
+    if ($field) {
+        return $field;
     }
+
+    $field = new $class($config);
 
     if (!Craft::$app->getFields()->saveField($field)) {
         throw new RuntimeException("Unable to save field $handle: " . json_encode($field->getErrors()));
@@ -171,32 +170,36 @@ $sectionItemsField = fieldByHandle('sectionItems', Table::class, [
     'defaults' => [],
 ]);
 
-$sectionType = $entries->getEntryTypeByHandle('menuSection') ?? new EntryType([
-    'name' => 'Menu Section',
-    'handle' => 'menuSection',
-    'hasTitleField' => false,
-    'titleFormat' => '{sectionCategory.one().title}',
-    'showSlugField' => false,
-    'showStatusField' => false,
-]);
+$sectionType = $entries->getEntryTypeByHandle('menuSection');
 
-$sectionLayout = new FieldLayout([
-    'type' => Entry::class,
-]);
-$sectionLayout->setTabs([
-    new FieldLayoutTab([
-        'layout' => $sectionLayout,
-        'name' => 'Content',
-        'elements' => [
-            new CustomField($sectionCategoryField, ['required' => true]),
-            new CustomField($sectionItemsField, ['required' => true]),
-        ],
-    ]),
-]);
-$sectionType->setFieldLayout($sectionLayout);
+if (!$sectionType) {
+    $sectionType = new EntryType([
+        'name' => 'Menu Section',
+        'handle' => 'menuSection',
+        'hasTitleField' => false,
+        'titleFormat' => '{sectionCategory.one().title}',
+        'showSlugField' => false,
+        'showStatusField' => false,
+    ]);
 
-if (!$entries->saveEntryType($sectionType)) {
-    throw new RuntimeException('Unable to save Menu Section entry type: ' . json_encode($sectionType->getErrors()));
+    $sectionLayout = new FieldLayout([
+        'type' => Entry::class,
+    ]);
+    $sectionLayout->setTabs([
+        new FieldLayoutTab([
+            'layout' => $sectionLayout,
+            'name' => 'Content',
+            'elements' => [
+                new CustomField($sectionCategoryField, ['required' => true]),
+                new CustomField($sectionItemsField, ['required' => true]),
+            ],
+        ]),
+    ]);
+    $sectionType->setFieldLayout($sectionLayout);
+
+    if (!$entries->saveEntryType($sectionType)) {
+        throw new RuntimeException('Unable to save Menu Section entry type: ' . json_encode($sectionType->getErrors()));
+    }
 }
 
 $menuSectionsField = fieldByHandle('menuSections', Matrix::class, [
@@ -211,25 +214,6 @@ $menuIndexType = $entries->getEntryTypeByHandle('menuIndex');
 
 if (!$menuIndexType) {
     throw new RuntimeException('Missing menuIndex entry type.');
-}
-
-$menuIndexLayout = new FieldLayout([
-    'type' => Entry::class,
-]);
-$menuIndexLayout->setTabs([
-    new FieldLayoutTab([
-        'layout' => $menuIndexLayout,
-        'name' => 'Content',
-        'elements' => [
-            new EntryTitleField(['required' => true]),
-            new CustomField($menuSectionsField),
-        ],
-    ]),
-]);
-$menuIndexType->setFieldLayout($menuIndexLayout);
-
-if (!$entries->saveEntryType($menuIndexType)) {
-    throw new RuntimeException('Unable to update menuIndex entry type: ' . json_encode($menuIndexType->getErrors()));
 }
 
 $entry = Entry::find()
