@@ -3,3 +3,6 @@
 /vendor
 /node_modules
 .DS_Store
+
+/*.sql
+/*.sql.gz
