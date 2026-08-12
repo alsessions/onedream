@@ -3,3 +3,31 @@
 
 @source "../../templates";
 @source "../../config";
+
+@theme {
+    --color-brand-blue: #3f76b8;
+    --color-brand-blue-dark: #2563eb;
+    --color-ink: #1f2933;
+    --color-ink-muted: #374151;
+    --color-ink-soft: #4b5563;
+}
+
+@layer base {
+    body {
+        @apply bg-gray-50 text-ink antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Permanent Marker", cursive;
+        @apply text-brand-blue-dark;
+    }
+
+    a {
+        @apply text-brand-blue hover:text-brand-blue-dark;
+    }
+}
