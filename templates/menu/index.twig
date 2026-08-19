@@ -1,63 +1,68 @@
 {% extends '_layouts/base.twig' %}
 
-{% block title %}{{ entry.title ?? 'One Dream Menu' }}{% endblock %}
 {% block bodyClass %}{% endblock %}
 
 {% block body %}
     {% set menuSections = entry.menuSections.all() %}
 
-    <main id="menu-top" class="mx-auto min-h-screen max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <header class="mb-8 text-center">
-            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-ink-soft">Fast, Fresh & Delicious</p>
-            <h1 class="mt-2 text-4xl font-black tracking-tight sm:text-5xl">One Dream</h1>
-            <p class="mt-3 text-sm text-ink-soft">Prices subject to change.</p>
-        </header>
+    <main id="menu-top" class="min-h-screen scroll-smooth bg-gradient-to-b from-blue-200 via-blue-100 to-gray-50">
+        <section class="bg-brand-blue-dark px-4 py-10 shadow-md sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+                <div class="max-w-2xl py-8 lg:py-16">
+                    <p class="text-sm font-black uppercase tracking-[0.25em] text-blue-100">Fast, Fresh & Delicious</p>
+                    <h1 class="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl md:text-5xl">One Dream</h1>
+                    <p class="mt-5 text-lg leading-6 text-blue-100">Prices subject to change.</p>
+                </div>
+            </div>
+        </section>
 
-        {% if menuSections %}
-            <nav class="mx-auto mb-8 flex max-w-5xl flex-wrap justify-center gap-2 text-sm font-semibold" aria-label="Menu categories">
+        <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+            {% if menuSections %}
+                <nav class="mx-auto mb-8 flex max-w-5xl flex-wrap justify-center gap-2 text-sm font-semibold" aria-label="Menu categories">
+                    {% for section in menuSections %}
+                        {% set category = section.sectionCategory.one() %}
+                        {% set items = section.sectionItems ?? [] %}
+
+                        {% if category and items %}
+                            <a class="rounded-md border border-brand-blue/30 bg-white px-2.5 py-1.5 text-center leading-snug shadow-sm hover:border-brand-blue hover:bg-blue-50" href="#{{ category.slug }}">
+                                {{ category.title }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </nav>
+            {% endif %}
+
+            <div class="columns-1 gap-5 sm:columns-2 xl:columns-3 [&>*]:mb-5">
                 {% for section in menuSections %}
                     {% set category = section.sectionCategory.one() %}
                     {% set items = section.sectionItems ?? [] %}
 
                     {% if category and items %}
-                        <a class="rounded-md border border-brand-blue/30 bg-white px-2.5 py-1.5 text-center leading-snug shadow-sm hover:border-brand-blue hover:bg-blue-50" href="#{{ category.slug }}">
-                            {{ category.title }}
-                        </a>
+                        <section class="break-inside-avoid rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                            <h2 id="{{ category.slug }}" class="scroll-mt-6 mb-2 border-b-2 border-brand-blue-dark pb-1 text-2xl font-bold tracking-tight">{{ category.title }}</h2>
+
+                            <ul>
+                                {% for item in items %}
+                                    <li class="flex items-start justify-between gap-4 border-b border-slate-200/70 py-1.5 text-sm leading-snug">
+                                        <span class="font-semibold">{{ item.item }}</span>
+                                        <span class="shrink-0 text-ink">{{ item.price }}</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </section>
                     {% endif %}
-                {% endfor %}
-            </nav>
-        {% endif %}
-
-        <div class="columns-1 gap-5 sm:columns-2 xl:columns-3 [&>*]:mb-5">
-            {% for section in menuSections %}
-                {% set category = section.sectionCategory.one() %}
-                {% set items = section.sectionItems ?? [] %}
-
-                {% if category and items %}
-                    <section class="break-inside-avoid rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                        <h2 id="{{ category.slug }}" class="scroll-mt-6 mb-2 border-b-2 border-brand-blue-dark pb-1 text-2xl font-bold tracking-tight">{{ category.title }}</h2>
-
-                        <ul>
-                            {% for item in items %}
-                                <li class="flex items-start justify-between gap-4 border-b border-slate-200/70 py-1.5 text-sm leading-snug">
-                                    <span class="font-semibold">{{ item.item }}</span>
-                                    <span class="shrink-0 text-ink">{{ item.price }}</span>
-                                </li>
-                            {% endfor %}
-                        </ul>
+                {% else %}
+                    <section class="rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+                        <h1 class="text-2xl font-bold tracking-tight">Menu coming soon.</h1>
                     </section>
-                {% endif %}
-            {% else %}
-                <section class="rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-                    <h1 class="text-2xl font-bold tracking-tight">Menu coming soon.</h1>
-                </section>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
 
-        <div class="mt-2 flex justify-end">
-            <a class="flex size-11 items-center justify-center rounded-full border border-slate-300 bg-white text-2xl leading-none text-ink-muted shadow-md hover:border-brand-blue-dark hover:text-brand-blue-dark" href="#menu-top" aria-label="Jump to top">
-                &uarr;
-            </a>
-        </div>
+            <div class="sticky bottom-6 z-10 mt-2 flex justify-end">
+                <a class="flex size-11 items-center justify-center rounded-full border border-slate-300 bg-white text-2xl leading-none text-ink-muted shadow-md hover:border-brand-blue-dark hover:text-brand-blue-dark" href="#menu-top" aria-label="Jump to top">
+                    &uarr;
+                </a>
+            </div>
+        </section>
     </main>
 {% endblock %}

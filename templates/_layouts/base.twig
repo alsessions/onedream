@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8" />
-    <title>{% block title %}One Dream Coming Soon{% endblock %}</title>
+    <title>{% block title %}{{ entry is defined ? entry.title : siteName }} | One Dream - Latham{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="origin-when-cross-origin" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,11 +1,12 @@
-<nav class="px-6 py-5" x-data="{ open: false }">
+<nav class="bg-white px-6 py-5" x-data="{ open: false }">
     <div class="mx-auto flex max-w-7xl items-center justify-between">
-        <a href="/" class="text-2xl font-bold tracking-tight text-brand-blue-dark">One Dream</a>
+        <a href="/" class="shrink-0" aria-label="One Dream home">
+            <img class="h-12 w-auto md:h-14" src="/assets/One-Dream-logo.jpeg" alt="One Dream" width="798" height="543" />
+        </a>
 
-        <div class="hidden items-center gap-8 text-base font-bold text-brand-blue-dark md:flex">
-            <a href="/menu">Menu</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+        <div class="hidden items-center gap-8 text-lg font-black uppercase tracking-widest text-brand-blue-dark md:flex">
+            <a class="hover:underline" href="/menu">Menu</a>
+            <a class="hover:underline" href="/about">About</a>
         </div>
 
         <button
@@ -25,10 +26,9 @@
     </div>
 
     <div class="mx-auto mt-4 max-w-5xl rounded-lg bg-white p-4 shadow-sm ring-1 ring-stone-200 md:hidden" x-cloak x-show="open" @click.outside="open = false">
-        <div class="flex flex-col gap-3 text-base font-bold text-brand-blue-dark">
+        <div class="flex flex-col gap-3 text-lg font-black uppercase tracking-widest text-brand-blue-dark">
             <a href="/menu">Menu</a>
             <a href="/about">About</a>
-            <a href="/contact">Contact</a>
         </div>
     </div>
 </nav>
